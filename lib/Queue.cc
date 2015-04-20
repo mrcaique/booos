@@ -30,7 +30,7 @@ void Queue::insert(Element * elem) {
 Queue::Element* Queue::remove() {
 	if (_length < 1) {
 		throw "ERROR"; // Empty queue
-	} 
+	}
 	Element* out = _head.next();
 	if (_length < 2) {
 		_head.next(&(_head));
