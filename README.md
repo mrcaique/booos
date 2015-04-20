@@ -13,7 +13,7 @@ Cada novo projeto sugerido, ou pode ser uma operação ou uma estrutura de dados
 		Queue_Test.cc
 
 2 - Troca de contexto e tarefas cooperativas
-	Arqiuvos:
+	Arquivos:
 		lib/
 			BOOOS.c
 			BOOOS.h
