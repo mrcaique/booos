@@ -33,6 +33,8 @@ public:
 	 * @param nargs número de argumentos para a função
 	 * @param arg argumentos a ser adicionados à função
 	 */
+	Task(void (*entry_point)(void), int nargs, void * arg);
+
 	Task(void (*entry_point)(void*), int nargs, void * arg);
 
 	/*!

@@ -39,7 +39,7 @@ Queue::Element* Queue::remove() {
 		Element* end = _head.prev();
 		end->next(out->next());
 		_head.next(out->next());
-		out->prev(end);
+		out->next()->prev(end);
 	}
 	_length--;
 	return out;

@@ -13,14 +13,17 @@ Task * Task::__main;
 int Task::_tid_counter = 0;
 int Task::STACK_SIZE = 32768;
 
+Task::Task(void (*entry_point)(void), int nargs, void * arg) {
+	Task((void (*) (void*))entry_point, nargs, arg);
+}
+
 Task::Task(void (*entry_point)(void*), int nargs, void * arg) {
 	if (nargs < 0) {
 		throw "Error, number of arguments is invalid";
 	}
-
 	getcontext(&(this->context));
 	this->_stack = new char[Task::STACK_SIZE];
-	this->context.uc_link = &(__main->context);
+	this->context.uc_link = (ucontext_t*)&(__running->context);
 	this->context.uc_stack.ss_sp = this->_stack;
 	this->context.uc_stack.ss_size = Task::STACK_SIZE;
 	this->_state = Task::READY;
