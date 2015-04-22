@@ -1,5 +1,5 @@
 # booos
-Basic Oriented Object Operating System
+Basic Object-Oriented Operating System
 
 Implementação de operações básicas de um sistema operacional na liguagem C++. O repositório faz parte de projetos ministrados durante a disciplina de Sistemas Operacionais I da Universidade Federal de Santa Catarina (UFSC) no primeiro semestre de 2015. 
 
