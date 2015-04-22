@@ -6,10 +6,14 @@
 using namespace BOOOS;
 
 Queue::Queue() {
-	_length = 0;
+	this->_length = 0;
 }
 
-Queue::~Queue() {}
+Queue::~Queue() {
+	while (this->_length) {
+		this->remove();
+	}
+}
 
 void Queue::insert(Element * elem) {
 	if (_length < 1) {
@@ -24,7 +28,7 @@ void Queue::insert(Element * elem) {
 		elem->next(_head.next());
 		_head.prev(elem);
 	}
-	_length++;
+	++_length;
 }
 
 Queue::Element* Queue::remove() {
@@ -41,7 +45,7 @@ Queue::Element* Queue::remove() {
 		_head.next(out->next());
 		out->next()->prev(end);
 	}
-	_length--;
+	--_length;
 	return out;
 }
 
