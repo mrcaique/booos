@@ -10,7 +10,7 @@ namespace BOOOS
 
 volatile Task * Task::__running;
 Task * Task::__main;
-int Task::_tid_counter = 1;
+int Task::_tid_counter = 0;
 int Task::STACK_SIZE = 32768;
 
 Task::Task(void (*entry_point)(void), int nargs, void * arg) {
@@ -57,7 +57,7 @@ void Task::exit(int code) {
 }
 
 void Task::init() {
-	Task::_tid_counter = 1;
+	Task::_tid_counter = 0;
 	__main = new Task();
 	__running = __main;
 	__main->_state = Task::RUNNING;

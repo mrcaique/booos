@@ -40,13 +40,13 @@ namespace Task_Test_Functions {
 		Task * t3 = new Task(f3, 1, (void*)"f3");
 		Task * t4 = new Task(f4, 1, (void*)"f4");
 
-		ASSERT(t1.tid() == 2, 1);
+		ASSERT(t1.tid() == 1, 1);
 		ASSERT(t1.state() == Task::READY, 2);
-		ASSERT(t2.tid() == 3, 3);
+		ASSERT(t2.tid() == 2, 3);
 		ASSERT(t2.state() == Task::READY, 4);
-		ASSERT(t3->tid() == 4, 5);
+		ASSERT(t3->tid() == 3, 5);
 		ASSERT(t3->state() == Task::READY, 6);
-		ASSERT(t4->tid() == 5, 7);
+		ASSERT(t4->tid() == 4, 7);
 		ASSERT(t4->state() == Task::READY, 8);
 
 		delete t3;
