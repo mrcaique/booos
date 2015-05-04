@@ -1,5 +1,5 @@
 # This file implements generic generation rules for BOOOS
-TEST := Task_Test
+
 LIBNAME := libBOOOS.a
 
 # Path to BOOOS root directory 
