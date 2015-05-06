@@ -1,7 +1,6 @@
 /* Caique Rodrigues Marques (13204303) e Fernando Jorge Mota (13200641)
  * Task.cc
  *
- *  Created on: Feb 27, 2014
  */
 
 #include "Task.h"

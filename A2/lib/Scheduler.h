@@ -1,7 +1,6 @@
 /*
  * Scheduler.h
  *
- *  Created on: Mar 21, 2014
  */
  
 #ifndef SCHEDULER_H_

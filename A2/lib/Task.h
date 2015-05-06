@@ -1,7 +1,6 @@
 /*
  * Task.h
  *
- *  Created on: Aug 15, 2014
  */
 
 #ifndef TASK_H_
@@ -39,7 +38,7 @@ public:
 
 	void nice(int priority);
 
-        void aging();
+    void aging();
 
 	static Task * self() { return (Task*) __running; }
 	static Queue ready() { return __ready; } 

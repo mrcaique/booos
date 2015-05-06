@@ -1,7 +1,6 @@
-/* 
+/* Caique Rodrigues Marques (13204303) e Fernando Jorge Mota (13200641)
  * Scheduler.cc
  *
- *  Created on: Feb 27, 2014
  */
 
 #include "Scheduler.h"
@@ -30,13 +29,7 @@ Scheduler::Scheduler() : Task(Scheduler::dispatcher, 0, 0)  {
 Scheduler::~Scheduler(){};
 
 void Scheduler::dispatcher(void*) {
-	while (Task::count() > 1) {
-		if (Task::self()->state() == Task::RUNNING) {
-			// If there is a task running actually, closes it. 
-			// Example of such a situation: Such as when this context is selected automagically by uc_link
-			Task::self()->exit(0);
-			continue;
-		}
+	while (Task::__ready.length() > 0) {
 		Task *next = Scheduler::self()->choose_next(); 	
 		if (next) {
 			if (BOOOS::SCHED_AGING == true and Task::__ready.length() > 0) {
@@ -47,6 +40,11 @@ void Scheduler::dispatcher(void*) {
 				} while (elem != Task::__ready.head()->next());
 			}
 			Task::self()->pass_to(next, Task::READY);
+			if (Task::self()->state() == Task::RUNNING) {
+				// If there is a task running actually, closes it. 
+				// Example of such a situation: Such as when this context is selected automagically by uc_link
+				Task::self()->exit(0);
+			}
 		}
 	} 
 	Task::self()->exit(0);
