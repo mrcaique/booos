@@ -42,7 +42,8 @@ Notas:
 versão 4.0.14 (revisão 5615) - maio de 2014.
 
 2) A implementação do template Semaphore assim como as suas declaraçoes locais não são
-de minha autoria.
+de minha autoria. O template é de autoria de Frits Vaandrager da Radboud University 
+Nijmegen (http://cs.ru.nl/~fvaan/PC/uppaal/semaphores.html).
 */
 
 const int iterations = 5; //!&lt; Number of iterations
