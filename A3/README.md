@@ -1,21 +1,21 @@
-##Barreira (sincronização) - solução em semáforos
-Este arquivo tem como objetivo simular o problema da barreira, que consiste em n trabalhadores (worker) e um coordenador (coordinator). Dado o sinal do coordenador, n trabalhadores começam a trabalhar e concluem o serviço, esperando a próxima tarefa. 
+##Barrier (synchronization) - semphores solution
+This file aims to simulate the problem of the barrier, which consists of n workers and a coordinator. Given the coordinator's signal, n workers begin to work and conclude the service, waiting for the next task.
 
-Após a conclusão da tarefa pelo último trabalhador, o coordenador dará um novo sinal de início de trabalho aos trabalhadores que estavam esperando por um novo serviço e, quando todos concluírem, o coordenador dará um novo sinal e assim sucessivamente.
+Upon completion of the task by the last worker, the coordinator will give a new start signal to workers who were waiting for a new service and, when all complete, the coordinator will give a new signal and so on.
 
-A solução do problema da barreira é baseada no seguinte algoritmo:
+The solution is based on the following algorithm:
 
-    int nProcess = n; // Número de processos trabalhadores
+    int nProcess = n; // Number of worker processess
 
     Worker(int pid) {
 		while(i < iterations) {
 			mutex.wait();
-			// Trabalho
+			// work
 			mutex.signal();
 		
 			finish.signal();
 			barrier.wait();
-			// Espera próximo serviço
+			// Wait next service
 		}
     }
 
@@ -30,8 +30,8 @@ A solução do problema da barreira é baseada no seguinte algoritmo:
 		}
     }
 
-Notas:
+Notes:
 
-***1)*** Esta simulação foi feita com o auxílio da ferramenta [Uppaal] (http://www.uppaal.org/), versão 4.0.14 (revisão 5615) - maio de 2014.
+***1)*** This simulation was performed with the aid of [Uppaal] (http://www.uppaal.org/) tool, version 4.0.14 (revision 5615) - may 2014.
 
-***2)*** A implementação do template Semaphore assim como as suas declaraçoes locais não são de minha autoria. O template é de autoria de [Frits Vaandrager] (http://cs.ru.nl/~fvaan/PC/uppaal/semaphores.html) da Radboud University Nijmegen.
+***2)*** The implementation of Semaphore template as well as their local declarations are not of my own. The template it is authored by [Frits Vaandrager] (http://cs.ru.nl/~fvaan/PC/uppaal/semaphores.html) from Radboud University Nijmegen.
