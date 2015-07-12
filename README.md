@@ -1,34 +1,10 @@
 # booos
 Basic Object-Oriented Operating System
 
-Implementação de operações básicas de um sistema operacional na liguagem C++. O repositório faz parte de projetos ministrados durante a disciplina de Sistemas Operacionais I da Universidade Federal de Santa Catarina (UFSC) no primeiro semestre de 2015. 
+Implementation of a basic operations of an operating system in C++. The repository is part of delivered projects during the course "Sistemas Operacionais I" (Operating Systems I) of the Universidade Federal de Santa Catarina (UFSC) in the first half of 2015.
 
-Cada novo projeto sugerido, ou pode ser uma operação ou uma estrutura de dados que auxiliará no primeiro. Segue o índice de tarefas com os respecivos arquivos fornecidos:
+Each new project, or may be an operation or a data structure that helps in the first (except A3). Now, the index of tasks:
 
-1 - Implementação de uma fila duplamente encadeada:
-
-	Arquivos:
-		Queue.cc
-		Queue.h
-		makefile
-		Queue_Test.cc
-
-2 - Troca de contexto e tarefas cooperativas:
-	
-	Arquivos:
-		lib/
-			BOOOS.c
-			BOOOS.h
-			Makefile
-			Queue.cc
-			Queue.h
-			Task.cc
-			Task.h
-		test/
-			Makefile
-			Queue_Test.cc
-			Task_Test.cc
-			test_scaffold.h
-		booos.h
-		Makedefs
-		Makefile
+* **A1**: Implementation of a queue doubly linked and context switch and cooperative tasks;
+* **A2**: FCFS and priority schedule; 
+* **A3**: Barrier (synchronization) - semaphores solution.
