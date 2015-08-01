@@ -1,9 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// 2015 Caique Rodrigues Marques
 
-/* Este arquivo tem como objetivo simular o problema
+/* 
+-----------------------[English]-----------------------------------------------------
+This file aims to simulate the problem of the barrier, which consists 
+of n workers and a coordinator. Given the coordinator's signal, n workers
+begin to work and conclude the service, waiting for the next task.
+
+Upon completion of the task by the last worker, the coordinator will give 
+a new start signal to workers who were waiting for a new service and, when 
+all complete, the coordinator will give a new signal and so on.
+
+The solution is based on the following algorithm:
+-------------------------------------------------------------------------------------
+ int nProcess = n; // Number of worker processess
+
+ Worker(int pid) {
+	while(i &lt; iterations) {
+		mutex.wait();
+		// work
+		mutex.signal();
+		
+		finish.signal();
+		barrier.wait();
+		// Wait next service
+	}
+ }
+
+ Coordinator() {
+	while(i &lt; iterations) {
+		for (int i = 0; i &lt; nProcess; i++) { finish.wait(); }
+		for (int i = 0; i &lt; nProcess; i++) { barrier.signal(); }
+	}
+ }
+-------------------------------------------------------------------------------------
+Notes:
+1)This simulation was performed with the aid of Uppaal tool (http://www.uppaal.org/),
+version 4.0.14 (revision 5615) - may 2014.
+
+2) The implementation of Semaphore template as well as their local declarations are not
+of my own. The template it is authored by Frits Vaandrager from Radboud University 
+Nijmegen (http://cs.ru.nl/~fvaan/PC/uppaal/semaphores.html).
+
+
+#######################################################################################
+
+
+-----------------------[Português do Brasil]-----------------------------------------
+Este arquivo tem como objetivo simular o problema
 da barreira, que consiste em n trabalhadores (worker) e um coor-
 denador (coordinator). Dado o sinal do coordenador, n trabalhadores 
-começam a trabalhar e concluem o serviço, esperando a próxima tarefa. 
+começam a trabalhar e concluem o serviço, esperando a próxima tarefa.
+ 
 Após a conclusão da tarefa pelo último trabalhador, o coordenador dará
 um novo sinal de início de trabalho aos trabalhadores que estavam esperando
 por um novo serviço e, quando todos concluírem, o coordenador dará um novo
@@ -22,7 +69,7 @@ A solução do problema da barreira é baseada no seguinte algoritmo:
 			
 			finish.signal();
 			barrier.wait();
-			// Espera proximo serviço
+			// Espera próximo serviço
 		}
 	}
  }
@@ -44,6 +91,9 @@ versão 4.0.14 (revisão 5615) - maio de 2014.
 2) A implementação do template Semaphore assim como as suas declaraçoes locais não são
 de minha autoria. O template é de autoria de Frits Vaandrager da Radboud University 
 Nijmegen (http://cs.ru.nl/~fvaan/PC/uppaal/semaphores.html).
+
+#######################################################################################
+
 */
 
 const int iterations = 5; //!&lt; Number of iterations
