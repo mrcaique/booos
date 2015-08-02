@@ -1,4 +1,4 @@
-##Barrier (synchronization) - semphores solution
+##Barrier (synchronization) - semaphores solution
 This file aims to simulate the problem of the barrier, which consists of n workers and a coordinator. Given the coordinator's signal, n workers begin to work and conclude the service, waiting for the next task.
 
 Upon completion of the task by the last worker, the coordinator will give a new start signal to workers who were waiting for a new service and, when all complete, the coordinator will give a new signal and so on.
